@@ -29,14 +29,15 @@ header {
     grid-area: header;
     text-align: center;
     padding-top: 4vh;
+    outline: 1vh solid #0d47a1;
 }
 
 h2 {
     margin: 0px;
-    font-size: 25px;
+    font-size: 5vh;
     font-weight: 300;
     color: white;
-    letter-spacing: 10px;
+    letter-spacing: 4vh;
 }
 
 h3 {
@@ -66,7 +67,8 @@ h3:active {
 .left {
     background-color: #fafafa;
     grid-area: left;
-    padding: 5%;
+    padding: 9vh;
+    outline: 1vh solid #0d47a1;
 }
 
 .right {
@@ -87,7 +89,7 @@ p {
 
 input, select {
     margin-bottom: 10px;
-    width: 180px;
+    width: 30vh;
     border: 0;
     padding: 2vh;
     box-shadow: 5px 3px #c7c7c7;

@@ -14,7 +14,7 @@
             </header>
 
             <section class="left">
-                <input value="" id="pass"/><br />
+                <input value="" type="number" id="pass"/><br />
                 <button value="send" id="uno">1</button>
                 <button value="send" id="dos">2</button>
                 <button value="send" id="tres">3</button><br />
@@ -25,7 +25,7 @@
                 <button value="send" id="ocho">8</button>
                 <button value="send" id="nueve">9</button><br />
                 <button value="send" id="cero">0</button>
-                <button value="send" id="ingresar">INGRESAR</button>
+                <button value="send" id="ingresar" onclick="const $right = $('.right');$right.slideDown(1000);">INGRESAR</button>
             </section>
 
             <section class="right">
@@ -33,9 +33,7 @@
 
             <footer></footer>
         </div>
-<!--
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src='js/main.js'></script> 
--->
     </body>
 </html>

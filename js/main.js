@@ -3,7 +3,7 @@ $(document).ready(() => {
     const $right = $('.right');
     const $monto = $('#monto');
     window.onkeydown = function(event) {
-        monto = document.getElementById("monto").value;
+        document.getElementById("monto").value;
         if (monto <= 0 || ""){
             $button.prop("disabled", true);
         } else {$button.removeAttr('disabled')}
