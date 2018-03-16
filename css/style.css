@@ -93,6 +93,7 @@ input, select {
     border: 0;
     padding: 2vh;
     box-shadow: 5px 3px #c7c7c7;
+    transition-delay: 0.4;
 }
 
 input {
