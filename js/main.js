@@ -59,11 +59,14 @@ $(document).ready(() => {
     window.onkeydown = function(event) {
         if ( event.keyCode == 13 ) {
             $right.slideDown(1000); 
-            $msj.hide(); document.getElementById('ingresar').click();
+            $msj.addClass("flip-out-hor-top");
+            document.getElementById('ingresar').click();
             
         }
         if ( event.keyCode == 27 ) {
             $right.slideUp(1000);
+            $msj.removeClass("flip-out-hor-top");
+            $msj.addClass("flip-in-hor-bottom");
             $pass.val("");
             password = "";
         }
