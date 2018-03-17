@@ -59,7 +59,7 @@ $(document).ready(() => {
     window.onkeydown = function(event) {
         if ( event.keyCode == 13 ) {
             $right.slideDown(1000); 
-            $msj.hide; document.getElementById('ingresar').click();
+            $msj.hide(); document.getElementById('ingresar').click();
             
         }
         if ( event.keyCode == 27 ) {
