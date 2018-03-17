@@ -58,7 +58,8 @@ $(document).ready(() => {
 
     window.onkeydown = function(event) {
         if ( event.keyCode == 13 ) {
-            $right.slideDown(1000); 
+            $right.slideDown(1000);
+            $msj.removeClass("flip-in-hor-bottom");
             $msj.addClass("flip-out-hor-top");
             document.getElementById('ingresar').click();
             
