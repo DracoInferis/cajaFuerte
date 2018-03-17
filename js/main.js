@@ -12,6 +12,7 @@ $(document).ready(() => {
     const $ocho = $('#ocho');
     const $nueve = $('#nueve');
     const $cero = $('#cero');
+    const $msj = $('#mensaje');
     var password = document.getElementById('pass').value;
     
     $uno.on('click', () => {
@@ -57,7 +58,9 @@ $(document).ready(() => {
 
     window.onkeydown = function(event) {
         if ( event.keyCode == 13 ) {
-            $right.slideDown(1000); document.getElementById('ingresar').click();
+            $right.slideDown(1000); 
+            $msj.hide; document.getElementById('ingresar').click();
+            
         }
         if ( event.keyCode == 27 ) {
             $right.slideUp(1000);
