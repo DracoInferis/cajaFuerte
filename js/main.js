@@ -57,8 +57,7 @@ $(document).ready(() => {
 
     window.onkeydown = function(event) {
         if ( event.keyCode == 13 ) {
-            $right.slideDown(1000); 
-            document.getElementById('ingresar').click();
+            $right.slideDown(1000); document.getElementById('ingresar').click();
         }
         if ( event.keyCode == 27 ) {
             $right.slideUp(1000);
@@ -106,4 +105,8 @@ $(document).ready(() => {
             document.getElementById('cero').click();
         }
     };
+    
+    if (password.length != 4) {
+        $pass.val("Debe tener al menos 4 numeros.")
+    }
 })

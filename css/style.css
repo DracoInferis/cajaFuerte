@@ -7,7 +7,7 @@
 body{
     margin: 0px;
     font-family: Poppins, sans-serif;
-    background-color: #fafafa;
+    background-color: #002171;
     user-select: none;
     overflow: hidden;
 }
@@ -29,7 +29,6 @@ header {
     grid-area: header;
     text-align: center;
     padding-top: 4vh;
-    outline: 1vh solid #0d47a1;
 }
 
 h2 {
@@ -68,7 +67,6 @@ h3:active {
     background-color: #fafafa;
     grid-area: left;
     padding: 9vh;
-    outline: 1vh solid #0d47a1;
 }
 
 .right {
@@ -135,6 +133,13 @@ button:disabled {
 
 button:active {
     box-shadow: inset 1px 2px 3px black;
+}
+
+#mensaje {
+    position: absolute;
+    top: 20%;
+    left: 55%;
+    text-align: center;
 }
 
 footer {
