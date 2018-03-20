@@ -13,8 +13,68 @@ $(document).ready(() => {
     const $nueve = $('#nueve');
     const $cero = $('#cero');
     const $msj = $('#mensaje');
+    const pin = "1209";
     var password = document.getElementById('pass').value;
+    $button.on('click', () => {
+        var actualPass = document.getElementById('pass').value;
+        var plen = Math.ceil(Math.log(actualPass) / Math.LN10);
+        if (plen != 4 && actualPass != pin) {
+            $msj.html("Intenta de nuevo.");
+        }
+        if (actualPass != pin && plen == 4) {
+            $msj.html("PIN incorrecto.")
+        }
+        if (actualPass == pin) {
+            $right.slideDown(1000);
+            $msj.removeClass("flip-in-hor-bottom");
+            $msj.addClass("flip-out-hor-top");
+        }
+    })
     
+    window.onkeydown = function(event) {
+        if ( event.keyCode == 13 ) {
+            document.getElementById('ingresar').click();  
+        }
+        if ( event.keyCode == 27 ) {
+            $right.slideUp(1000);
+            $msj.removeClass("flip-out-hor-top");
+            $msj.addClass("flip-in-hor-bottom");
+            $msj.html("Ingrese PIN");
+            $pass.val("");
+            password = "";
+        }
+        
+        if ( event.keyCode == 49 ) {
+            document.getElementById('uno').click();
+        }
+        if ( event.keyCode == 50 ) {
+            document.getElementById('dos').click();
+        }
+        if ( event.keyCode == 51 ) {
+            document.getElementById('tres').click();
+        }
+        if ( event.keyCode == 52 ) {
+            document.getElementById('cuatro').click();
+        }
+        if ( event.keyCode == 53 ) {
+            document.getElementById('cinco').click();
+        }
+        if ( event.keyCode == 54 ) {
+            document.getElementById('seis').click();
+        }
+        if ( event.keyCode == 55 ) {
+            document.getElementById('siete').click();
+        }
+        if ( event.keyCode == 56 ) {
+            document.getElementById('ocho').click();
+        }
+        if ( event.keyCode == 57 ) {
+            document.getElementById('nueve').click();
+        }
+        if ( event.keyCode == 48 ) {
+            document.getElementById('cero').click();
+        }
+    };
     $uno.on('click', () => {
         password = password + "1";
         $pass.val(password);
@@ -55,65 +115,4 @@ $(document).ready(() => {
         password = password + "0";
         $pass.val(password);
     })
-
-    window.onkeydown = function(event) {
-        if ( event.keyCode == 13 ) {
-            $right.slideDown(1000);
-            $msj.removeClass("flip-in-hor-bottom");
-            $msj.addClass("flip-out-hor-top");
-            document.getElementById('ingresar').click();
-            
-        }
-        if ( event.keyCode == 27 ) {
-            $right.slideUp(1000);
-            $msj.removeClass("flip-out-hor-top");
-            $msj.addClass("flip-in-hor-bottom");
-            $pass.val("");
-            password = "";
-        }
-        if ( event.keyCode == 49 ) {
-            $right.slideUp(1000);
-            document.getElementById('uno').click();
-        }
-        if ( event.keyCode == 50 ) {
-            $right.slideUp(1000);
-            document.getElementById('dos').click();
-        }
-        if ( event.keyCode == 51 ) {
-            $right.slideUp(1000);
-            document.getElementById('tres').click();
-        }
-        if ( event.keyCode == 52 ) {
-            $right.slideUp(1000);
-            document.getElementById('cuatro').click();
-        }
-        if ( event.keyCode == 53 ) {
-            $right.slideUp(1000);
-            document.getElementById('cinco').click();
-        }
-        if ( event.keyCode == 54 ) {
-            $right.slideUp(1000);
-            document.getElementById('seis').click();
-        }
-        if ( event.keyCode == 55 ) {
-            $right.slideUp(1000);
-            document.getElementById('siete').click();
-        }
-        if ( event.keyCode == 56 ) {
-            $right.slideUp(1000);
-            document.getElementById('ocho').click();
-        }
-        if ( event.keyCode == 57 ) {
-            $right.slideUp(1000);
-            document.getElementById('nueve').click();
-        }
-        if ( event.keyCode == 48 ) {
-            $right.slideUp(1000);
-            document.getElementById('cero').click();
-        }
-    };
-    
-    if (password.length != 4) {
-        $pass.val("Debe tener al menos 4 numeros.")
-    }
 })
