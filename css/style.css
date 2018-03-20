@@ -38,6 +38,11 @@ h2 {
     letter-spacing: 4vh;
 }
 
+.keypad {
+    margin: 0 auto;
+    width: 31vh;
+}
+
 h3 {
     position: absolute;
     top: 1px;
@@ -57,7 +62,7 @@ h3:hover {
 
 .left {
     grid-area: left;
-    padding: 9vh;
+    padding-top: 4.5vh;
 }
 
 .right {
@@ -102,6 +107,11 @@ button {
     margin: 1px;
     border: 0;
     transition-duration: 0.4s;
+}
+
+#borrar {
+    width: 30vh;
+    margin-top: 5px;
 }
 
 thead th {

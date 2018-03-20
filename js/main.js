@@ -12,6 +12,7 @@ $(document).ready(() => {
     const $ocho = $('#ocho');
     const $nueve = $('#nueve');
     const $cero = $('#cero');
+    const $borrar = $('#borrar');
     const $msj = $('#mensaje');
     const pin = "1209";
     var password = document.getElementById('pass').value;
@@ -36,12 +37,7 @@ $(document).ready(() => {
             document.getElementById('ingresar').click();  
         }
         if ( event.keyCode == 27 ) {
-            $right.slideUp(1000);
-            $msj.removeClass("flip-out-hor-top");
-            $msj.addClass("flip-in-hor-bottom");
-            $msj.html("Ingrese PIN");
-            $pass.val("");
-            password = "";
+            document.getElementById('borrar').click();
         }
         
         if ( event.keyCode == 49 ) {
@@ -114,5 +110,13 @@ $(document).ready(() => {
     $cero.on('click', () => {
         password = password + "0";
         $pass.val(password);
+    })
+    $borrar.on('click', () => {
+        $right.slideUp(1000);
+        $msj.removeClass("flip-out-hor-top");
+        $msj.addClass("flip-in-hor-bottom");
+        $msj.html("Ingrese PIN");
+        $pass.val("");
+        password = "";
     })
 })
