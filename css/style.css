@@ -61,7 +61,6 @@ h3:hover {
 }
 
 .right {
-    background-color: #f5f5f5;
     grid-area: right;
     padding: 5%;
     box-shadow: inset 1px 2px 3px black;
