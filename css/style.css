@@ -7,7 +7,7 @@
 body{
     margin: 0px;
     font-family: Poppins, sans-serif;
-    background: #6c5b7b;
+    background: #6c567b;
     user-select: none;
     overflow: hidden;
 }
@@ -66,7 +66,7 @@ h3:hover {
 }
 
 .right {
-    background: linear-gradient(#C06C84, #6c5b7b);
+    background: linear-gradient(#F67280, #6c567b);
     grid-area: right;
     padding: 5%;
     box-shadow: inset 1px 2px 3px black;
