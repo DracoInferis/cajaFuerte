@@ -15,20 +15,37 @@ $(document).ready(() => {
     const $borrar = $('#borrar');
     const $msj = $('#mensaje');
     const pin = "1209";
+    var intentos = 0;
     var password = document.getElementById('pass').value;
     $button.on('click', () => {
         var actualPass = document.getElementById('pass').value;
         var plen = Math.ceil(Math.log(actualPass) / Math.LN10);
+        if (intentos == 3){
+            $msj.html("Ingreso denegado.");
+            $msj.removeClass("shake-horizontal");
+            $msj.addClass("shake-horizontal");
+            pin = null;
+        }
         if (plen != 4 && actualPass != pin) {
             $msj.html("Intenta de nuevo.");
         }
         if (actualPass != pin && plen == 4) {
             $msj.html("PIN incorrecto.")
         }
+        if (password != pin) {
+            intentos = intentos + 1;
+            $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />" + intentos + " intentos.");
+            $msj.removeClass("shake-horizontal");
+            $msj.addClass("shake-horizontal");
+            password = "";
+            $pass.val("");
+        }
         if (actualPass == pin) {
             $right.slideDown(1000);
+            $msj.removeClass("shake-horizontal");
             $msj.removeClass("flip-in-hor-bottom");
             $msj.addClass("flip-out-hor-top");
+            
         }
     })
     
