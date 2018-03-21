@@ -20,7 +20,7 @@ $(document).ready(() => {
     $button.on('click', () => {
         var actualPass = document.getElementById('pass').value;
         var plen = Math.ceil(Math.log(actualPass) / Math.LN10);
-        if (intentos == 2){
+        if (intentos == 3){
             $msj.html("Ingreso denegado.");
             $msj.removeClass("shake-horizontal");
             pin = null;
@@ -28,6 +28,9 @@ $(document).ready(() => {
         if (actualPass != pin) {
             intentos = intentos + 1;
             $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />" + intentos + " intentos.");
+            if (intentos == 3) {
+                $msj.html("PIN incorrecto. <br /> Ultimo intento.");  
+            } 
             $msj.addClass("shake-horizontal");
             password = "";
             $pass.val("");
@@ -125,8 +128,11 @@ $(document).ready(() => {
         $msj.removeClass("flip-out-hor-top");
         $msj.addClass("flip-in-hor-bottom");
         $msj.removeClass("shake-horizontal");
-        $msj.html("Ingrese PIN");
+        $msj.html("Ingrese el PIN.");
         $pass.val("");
         password = "";
+        if (intentos == 3){
+            $msj.html("No puedes ingresar.")
+        }
     })
 })
