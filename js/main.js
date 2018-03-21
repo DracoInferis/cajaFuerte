@@ -26,13 +26,7 @@ $(document).ready(() => {
             $msj.addClass("shake-horizontal");
             pin = null;
         }
-        if (plen != 4 && actualPass != pin) {
-            $msj.html("Intenta de nuevo.");
-        }
-        if (actualPass != pin && plen == 4) {
-            $msj.html("PIN incorrecto.")
-        }
-        if (password != pin) {
+        if (actualPass != pin) {
             intentos = intentos + 1;
             $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />" + intentos + " intentos.");
             $msj.removeClass("shake-horizontal");
