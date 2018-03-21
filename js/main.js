@@ -20,16 +20,14 @@ $(document).ready(() => {
     $button.on('click', () => {
         var actualPass = document.getElementById('pass').value;
         var plen = Math.ceil(Math.log(actualPass) / Math.LN10);
-        if (intentos == 3){
+        if (intentos == 2){
             $msj.html("Ingreso denegado.");
             $msj.removeClass("shake-horizontal");
-            $msj.addClass("shake-horizontal");
             pin = null;
         }
         if (actualPass != pin) {
             intentos = intentos + 1;
             $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />" + intentos + " intentos.");
-            $msj.removeClass("shake-horizontal");
             $msj.addClass("shake-horizontal");
             password = "";
             $pass.val("");
@@ -39,7 +37,7 @@ $(document).ready(() => {
             $msj.removeClass("shake-horizontal");
             $msj.removeClass("flip-in-hor-bottom");
             $msj.addClass("flip-out-hor-top");
-            
+            intentos = 0;
         }
     })
     
@@ -126,6 +124,7 @@ $(document).ready(() => {
         $right.slideUp(1000);
         $msj.removeClass("flip-out-hor-top");
         $msj.addClass("flip-in-hor-bottom");
+        $msj.removeClass("shake-horizontal");
         $msj.html("Ingrese PIN");
         $pass.val("");
         password = "";
