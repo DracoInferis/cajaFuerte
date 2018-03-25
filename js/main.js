@@ -23,7 +23,8 @@ $(document).ready(() => {
         var actualPass = document.getElementById('pass').value;
         if (actualPass != pin) {
             intentos = intentos + 1;
-            $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />");
+            if (segundos == 10){
+            $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />");}
             if (intentos == 3) {
                 $msj.html("PIN incorrecto. <br /> Ultimo intento. <br /> Tienes " + segundos + " segundos.");
                 intervalo = setInterval(function(){
@@ -32,10 +33,10 @@ $(document).ready(() => {
                 if (segundos == 0){
                 clearInterval(intervalo);
                 $msj.html("Ingreso denegado.");
+                $msj.removeClass("shake-horizontal");
                 pin = null;
-            }
-                }, 1000);
-            }
+            }}, 1000);}
+            $msj.addClass("shake-horizontal");
             password = "";
             $pass.val("");
         }
@@ -51,7 +52,6 @@ $(document).ready(() => {
             $msj.addClass("flip-out-hor-top");
             intentos = 0;
             segundos = 10;
-            clearInterval(intervalo);
         }
     })
     

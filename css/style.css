@@ -75,9 +75,10 @@ h3:hover {
 
 p {
     margin: 0px;
-    background-color: #6C5B7B;
     padding: 0px 10px 0px 3px;
     display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
     color: #f5f5f5;
 }
 
