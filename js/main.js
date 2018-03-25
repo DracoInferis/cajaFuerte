@@ -16,24 +16,33 @@ $(document).ready(() => {
     const $msj = $('#mensaje');
     const pin = "1209";
     var intentos = 0;
+    var segundos = 10;
+    var intervalo;
     var password = document.getElementById('pass').value;
     $button.on('click', () => {
         var actualPass = document.getElementById('pass').value;
-        var plen = Math.ceil(Math.log(actualPass) / Math.LN10);
-        if (intentos == 3){
-            $msj.html("Ingreso denegado.");
-            $msj.removeClass("shake-horizontal");
-            pin = null;
-        }
         if (actualPass != pin) {
             intentos = intentos + 1;
-            $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />" + intentos + " intentos.");
+            $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />");
             if (intentos == 3) {
-                $msj.html("PIN incorrecto. <br /> Ultimo intento.");  
-            } 
-            $msj.addClass("shake-horizontal");
+                $msj.html("PIN incorrecto. <br /> Ultimo intento. <br /> Tienes " + segundos + " segundos.");
+                intervalo = setInterval(function(){
+                segundos = segundos - 1;
+                $msj.html("PIN incorrecto. <br /> Ultimo intento. <br /> Tienes " + segundos + " segundos.");
+                if (segundos == 0){
+                clearInterval(intervalo);
+                $msj.html("Ingreso denegado.");
+                pin = null;
+            }
+                }, 1000);
+            }
             password = "";
             $pass.val("");
+        }
+        if (segundos == 0){
+            clearInterval(intervalo);
+            $msj.html("Ingreso denegado.");
+            pin = null;
         }
         if (actualPass == pin) {
             $right.slideDown(1000);
@@ -41,6 +50,8 @@ $(document).ready(() => {
             $msj.removeClass("flip-in-hor-bottom");
             $msj.addClass("flip-out-hor-top");
             intentos = 0;
+            segundos = 10;
+            clearInterval(intervalo);
         }
     })
     
