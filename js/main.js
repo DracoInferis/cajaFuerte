@@ -17,11 +17,12 @@ $(document).ready(() => {
     const pin = "1209";
     var intentos = 0;
     var segundos = 10;
+    var right = 0;
     var intervalo;
     var password = document.getElementById('pass').value;
     $button.on('click', () => {
         var actualPass = document.getElementById('pass').value;
-        if (actualPass != pin) {
+        if (actualPass != pin && right == 0) {
             intentos = intentos + 1;
             if (segundos == 10){
             $msj.html("PIN incorrecto. <br /> Intenta nuevamente. <br />");}
@@ -40,11 +41,6 @@ $(document).ready(() => {
             password = "";
             $pass.val("");
         }
-        if (segundos == 0){
-            clearInterval(intervalo);
-            $msj.html("Ingreso denegado.");
-            pin = null;
-        }
         if (actualPass == pin) {
             $right.slideDown(1000);
             $msj.removeClass("shake-horizontal");
@@ -53,6 +49,7 @@ $(document).ready(() => {
             clearInterval(intervalo);
             intentos = 0;
             segundos = 10;
+            right = 1;
         }
     })
     
@@ -143,6 +140,7 @@ $(document).ready(() => {
         $msj.html("Ingrese el PIN.");
         $pass.val("");
         password = "";
+        right = 0;
         if (intentos == 3){
             $msj.html("No puedes ingresar.")
         }
