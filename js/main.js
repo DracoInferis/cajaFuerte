@@ -50,6 +50,7 @@ $(document).ready(() => {
             $msj.removeClass("shake-horizontal");
             $msj.removeClass("flip-in-hor-bottom");
             $msj.addClass("flip-out-hor-top");
+            clearInterval(intervalo);
             intentos = 0;
             segundos = 10;
         }
